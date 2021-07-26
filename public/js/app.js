@@ -25,14 +25,18 @@ weatherForm.addEventListener('submit', (e) => {
             }
             else {
                 messageOne.textContent = 'Weather for '+data.location
-                const messageText = 'Today it is \''+data.forecast.weatherDescription+'\' with a temperature of '+data.forecast.temperature+'<span>&#176;</span>. It currently feels like '+data.forecast.feelsLike+'<span>&#176;</span>'
+                const messageText = 'Today it is \'' 
+                    + data.forecast.weatherDescription + '\' with a temperature of ' + data.forecast.temperature + '<span>&#176;</span>. It currently feels like ' 
+                    + data.forecast.feelsLike + '<span>&#176;</span>' + ' <br> Today\'s humidity is ' + data.forecast.humidity
                 messageTwo.innerHTML = messageText
                 const icon = '<img src="'+data.forecast.weatherIcon+'" />'
                 weatherIcon.innerHTML = icon
+                console.log(data)
                 console.log(data.location)
                 console.log(data.forecast.feelsLike)
                 console.log(data.forecast.temperature)
                 console.log(data.forecast.weatherDescription)
+                console.log(data.forecast.humidity)
             }
         })
     })

@@ -11,15 +11,15 @@ const forecast = (lat, long, callback) => {
         try {
             if(error) {
                 throw error
-            }
-            if(body.error) {
+            } else if(body.error) {
                callback('Unable to reach the forecast services: '+ body.error, undefined)
             } else {
                 callback(undefined, {
                     weatherDescription: body.current.weather_descriptions[0],
                     weatherIcon: body.current.weather_icons[0],
                     temperature: body.current.temperature,
-                    feelsLike: body.current.feelslike
+                    feelsLike: body.current.feelslike,
+                    humidity: body.current.humidity
                 })
             }
         } catch (e) {
